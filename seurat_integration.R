@@ -1,8 +1,14 @@
+###Skeleton code for our Seurat integration of Trigeminal ganglia sc/snRNA-seq data
+###Author: Renthal Lab
+###July 5, 2023
+
+
+####PACKCAGES#####
 library(Seurat)
 library(tidyverse)
 library(grid)
 
-
+####GLOBAL VARIABLES#####
 pca_num <- 30
 res <- 1
 ## minimum Feature = 400
@@ -12,6 +18,8 @@ minFeature = 400
 maxpercent.mt = 10
 nfeature_tg_int <- 2000
 
+
+####DATA INPUT#####
 setwd("~")
 seurat_ginty_nature_2020 <- readRDS("Ginty_nature_2020/20210517_Sharma_TG_level1_raw_600_1/Seurat_anchored.Rds")
 seurat_jerome_natcomm_2020 <- readRDS("Jerome_natcomm_2020/Seurat.Rds")
@@ -21,7 +29,7 @@ seurat_ryba_elife_2019_10x <- readRDS("Ryba_elife_2019/Seurat_10genomics_annotat
 seurat_ryba_elife_2019_drop <- readRDS("Ryba_elife_2019/Seurat_drop_annotated.Rds")
 seurat_ryba_plos_2017 <- readRDS("Ryba_plos_2017/Seurat_annotated.Rds")
 
-
+####DATA WRANGLING#####
 ## ginty_2020
 seurat_ginty_nature_2020@meta.data$Age <- "P28–42"
 seurat_ginty_nature_2020@meta.data$Strain <- "C57Bl/6J"
@@ -134,6 +142,8 @@ seurat_tg_list <- list("ginty_nature_2020" = seurat_ginty_nature_2020,
                         "ryba_elife_2019_drop" = seurat_ryba_elife_2019_drop,
                         "ryba_plos_2017" = seurat_ryba_plos_2017)
 
+
+####INTEGRATION STEPS FOLLOW TUTORIAL: https://satijalab.org/seurat/articles/integration_introduction.html
 # normalize and identify variable features for each dataset independently
 seurat_tg_list <- lapply(X = seurat_tg_list, FUN <- function(x) {
   x <- NormalizeData(x)
@@ -204,7 +214,7 @@ pdf("UMAP_Species.pdf")
 DimPlot(tg.combined,group.by = "Species", label = F)
 dev.off()
 
-
+##MARKER GENES
 #tg.combined <- readRDS("Seurat.Rds")
 DefaultAssay(tg.combined) <- "RNA"
 markergene_neuron <- list("cLTMR1" = c("Fam19a4","Th"),
@@ -290,7 +300,7 @@ for (j in c("Snap25","Rbfox3","Sparc","Nefh","Piezo2","Tac1")) {
 }
 dev.off()
 
-
+###DIFFERENTIAL EXPRESSION
 cells.select=tg.combined@meta.data%>%
   rownames_to_column('V1')%>%
   sample_frac(0.15)%>%
