@@ -12,7 +12,7 @@ minFeature = 400
 maxpercent.mt = 10
 nfeature_tg_int <- 2000
 
-setwd("/n/scratch3/users/m/mx40/working/TG_agg_int/data/")
+setwd("~")
 seurat_ginty_nature_2020 <- readRDS("Ginty_nature_2020/20210517_Sharma_TG_level1_raw_600_1/Seurat_anchored.Rds")
 seurat_jerome_natcomm_2020 <- readRDS("Jerome_natcomm_2020/Seurat.Rds")
 seurat_renthal_neuron_2022_human <- readRDS("Renthal_neuron_2022/human/20210724_human_TG_level1_final_updated/Seurat_biomart.Rds")
