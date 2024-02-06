@@ -16,6 +16,6 @@ Conversion: Converts the Seurat object into a LIGER object for integrative analy
 **Differential Expression Analysis**
 Performs differential expression analysis comparing either clusters or datasets and saves the results to CSV files.
 
-Saving Results
+**Saving Results**
 - LIGER Object: Saves the processed LIGER object for future use.
 - Conversion to Seurat: Converts the LIGER object back to a Seurat object and saves it, allowing for further analysis or visualization using Seurat's functions.
