@@ -1,5 +1,6 @@
-**Step 0: Initialization and Library Loading**
+**README for seurat_CCA_integration.R**
 
+**Step 0: Initialization and Library Loading**
 Libraries: The script starts by loading necessary R packages (Seurat, tibble, dplyr, gridExtra, grid, ggplot2, hdf5r, TeachingDemos, and others) which are essential for data manipulation, visualization, and scRNA-seq data analysis.
 Parameters Setting: It sets several parameters like res (resolution for clustering), minFeature (minimum number of features), maxpercent.mt (maximum percentage of mitochondrial genes allowed), and others which are used throughout the script.
 
