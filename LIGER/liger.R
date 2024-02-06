@@ -120,7 +120,8 @@ dev.off()
 
 seurat_mat
 str(seurat_mat)
-#perform differential expression analysis
+# Perform differential expression analysis comparing clusters or datasets
+
 cluster_runWilcoxon<-runWilcoxon(seurat_mat,compare.method = "clusters")
 datasets_runWilcoxon<-runWilcoxon(seurat_mat,compare.method = "datasets")
 write.csv(cluster_runWilcoxon,"cluster_runWilcoxon.csv")
