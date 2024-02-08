@@ -23,7 +23,7 @@ library(dplyr)
 
 # ========= Initialization =========
 
-pca_num <- 42
+pca_num <- NULL
 res <- 1
 ## minimum Feature = 400
 ## mitochondrial gene < 10%
