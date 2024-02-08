@@ -20,7 +20,7 @@ library(TeachingDemos)
 
 # Set initial parameters for analysis
 res <- 1 # Resolution for clustering
-minFeature = 400 # Minimum number of features (genes) to be detected in a cell
+minFeature = 500 # Minimum number of features (genes) to be detected in a cell
 maxpercent.mt = 10 # Maximum percentage of mitochondrial genes allowed
 nfeature_tg_int <- 2000 # Number of variable features to identify
 
