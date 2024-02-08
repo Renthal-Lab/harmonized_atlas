@@ -19,7 +19,7 @@ VlnPlot(seurat_obj, features = c("nFeature_RNA", "nCount_RNA","percent.mt"), nco
 dev.off()
 table(seurat_obj$dataset)
 print("subsetting")
-seurat_obj <- subset(seurat_obj, subset =  nFeature_RNA>200 & percent.mt < 10)
+seurat_obj <- subset(seurat_obj, subset =  nFeature_RNA>500 & percent.mt < 10)
 #seurat_mat
 seurat_obj <- NormalizeData(seurat_obj)
 seurat_obj <- FindVariableFeatures(seurat_obj)
