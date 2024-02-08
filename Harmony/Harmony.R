@@ -21,7 +21,7 @@ VlnPlot(seurat_mat, features = c("nFeature_RNA", "nCount_RNA","percent.mt"), nco
 dev.off()
 table(seurat_mat$dataset)
 print("subsetting")
-seurat_mat <- subset(seurat_mat, subset =  nFeature_RNA>200 & percent.mt < 10)
+seurat_mat <- subset(seurat_mat, subset =  nFeature_RNA>500 & percent.mt < 10)
 
 seurat_mat <- NormalizeData(seurat_mat) %>% FindVariableFeatures() %>% ScaleData() %>% RunPCA(verbose = FALSE)
 
@@ -32,8 +32,7 @@ pca_num<-co1
 print(co1)
 
 seurat_mat <- RunHarmony(seurat_mat, group.by.vars = "dataset",reference_values=c("Aubert 2019_10x_Mouse","Sharma 2020_10x_Mouse",
-                                                                                  "Nguyen 2017_Drop-seq_Mouse","Liu 2022_BD Rhapsody_Mouse",
-                                                                                  "Liu 2022_BD Rhapsody_Mouse"))
+                                                                                  "Nguyen 2017_Drop-seq_Mouse","Liu 2022_BD Rhapsody_Mouse"))
 seurat_mat <- RunUMAP(seurat_mat, reduction = "harmony", dims = 1:pca_num)
 seurat_mat <- FindNeighbors(seurat_mat, reduction = "harmony", dims = 1:pca_num) %>% FindClusters()
 
