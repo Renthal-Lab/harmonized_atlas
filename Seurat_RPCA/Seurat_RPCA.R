@@ -28,7 +28,7 @@ res <- 1
 ## minimum Feature = 400
 ## mitochondrial gene < 10%
 
-minFeature = 400
+minFeature = 500
 maxpercent.mt = 10
 nfeature_tg_int <- 2000
 
