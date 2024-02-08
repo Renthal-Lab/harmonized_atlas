@@ -77,7 +77,7 @@ print("subsetting")
 table(seurat_mat$dataset)
 print("splitting the list")
 
-seurat_tg_list <- SplitObject(seurat_mat, split.by = "dataset") #I know this says tg, but I didn't want to change Mengyi's code that much. Mengyi's code is used from here on out.
+seurat_tg_list <- SplitObject(seurat_mat, split.by = "dataset") 
 seurat_tg_list
 
 # normalize and identify variable features for each dataset independently
