@@ -4,7 +4,7 @@
 
 `atlas`: Object created by subsetting neuronal atlas Seurat object for Primate species only. Command used was:
 ```R
-atlas <- subset(neuron_seurat, subset = Species %in% c("C. Macaque","R. Macaque"))
+atlas <- subset(neuron_seurat, subset = Species %in% c("C. Macaque","R. Macaque","Human"))
 ```
 `obj`: Seurat object containing counts from raw data given by other Pain Consortium Centres. The genes for humans have been converted to their respective mice orthologs as per code given elsewhere in this repository. This is the object to be anchored to the atlas object.
 
